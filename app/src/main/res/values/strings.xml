@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SimpleNotes</string>
+    <string name="title">Notes</string>
+    <string name="hint_input_note_body">Input your note here</string>
+    <string name="hint_input_note_title">Input note\'s title here</string>
+    <string name="add_note">Add note</string>
+    <string name="start_label">What to use?</string>
+    <string name="btn_start_room">ROOM</string>
+    <string name="btn_start_firebase">FIREBASE</string>
+    <string name="toast_enter_note_name">Enter note\'s name</string>
+    <string name="email_hint">email</string>
+    <string name="password_hint">password</string>
+    <string name="login_button">Login</string>
+    <string name="toast_enter_email_and_pass">Enter email and password</string>
+</resources>
