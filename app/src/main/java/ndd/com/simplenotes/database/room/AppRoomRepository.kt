@@ -1,6 +1,7 @@
 package ndd.com.simplenotes.database.room
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import ndd.com.simplenotes.database.DatabaseRepository
 import ndd.com.simplenotes.models.AppNote
@@ -17,6 +18,12 @@ class AppRoomRepository(context: Application) : DatabaseRepository {
 
     override suspend fun delete(note: AppNote, onSuccess: () -> Unit) {
         appRoomDao.delete(note)
+        onSuccess()
+    }
+
+    override suspend fun update(note: AppNote, onSuccess: () -> Unit) {
+        appRoomDao.update(note)
+//        Log.e("AppRoomRepo", "idRoom = ${note.id}" )
         onSuccess()
     }
 

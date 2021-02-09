@@ -37,6 +37,18 @@ class AppFirebaseRepository : DatabaseRepository {
             .addOnFailureListener { showToast(it.message.toString()) }
     }
 
+    override suspend fun update(note: AppNote, onSuccess: () -> Unit) {
+        val mapNote = HashMap<String, Any>()
+//        Log.e("update", "idFirebase : ${note.idFirebase}, userId = $CURRENT_ID")
+        mapNote[ID_FIREBASE] = note.idFirebase
+        mapNote[NAME] = note.name
+        mapNote[TEXT] = note.text
+        REF_DATABASE.child(note.idFirebase)
+            .updateChildren(mapNote)
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { showToast(it.message.toString()) }
+    }
+
     override fun connectToDatabase(onSuccess: () -> Unit, onError: (String) -> Unit) {
         if (AppReferences.getInitUser()) {
             initRefDatabase()

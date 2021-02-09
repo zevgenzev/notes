@@ -12,6 +12,9 @@ interface AppRoomDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(note: AppNote)
 
+    @Update(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun update(note: AppNote)
+
     @Delete
     suspend fun delete(note: AppNote)
 }

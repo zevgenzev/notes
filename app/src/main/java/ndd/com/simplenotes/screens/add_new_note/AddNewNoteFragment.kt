@@ -2,6 +2,7 @@ package ndd.com.simplenotes.screens.add_new_note
 
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -52,13 +53,15 @@ class AddNewNoteFragment : Fragment() {
             if (name.isEmpty()) {
                 showToast(getString(R.string.toast_enter_note_name))
             } else {
-                mViewModel.insert(AppNote(name = name, text = body)) {
+                val note = AppNote(name = name, text = body)
+                mViewModel.insert(note) {
                     lifecycleScope.launch(Dispatchers.Main) {
                         APP_ACTIVITY.navController.navigate(R.id.action_addNewNoteFragment_to_mainFragment)
                     }
                 }
                 hideKeyboard(this.context, this.view)
-
+                Log.e("NOTE", "name: ${note.name}, text: ${note.text}, idRoom: ${note.id}" +
+                        ", idFirebase: ${note.idFirebase}" )
 
             }
         }

@@ -1,6 +1,7 @@
 package ndd.com.simplenotes.screens.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -34,7 +35,6 @@ class MainFragment : Fragment() {
     private lateinit var mObserverList: Observer<List<AppNote>>
 
     override fun onCreateView(
-
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -57,6 +57,7 @@ class MainFragment : Fragment() {
             val list = it.asReversed()
             mAdapter.setList(list)
         }
+
         mViewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
         mViewModel.allNotes.observe(this, mObserverList)
         binding.btnAddNote.setOnClickListener {

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.note.NoteFragment">
-    <TextView
+
+    <EditText
         android:id="@+id/tv_note_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/app_margin"
+        android:background="@android:color/transparent"
+        android:cursorVisible="false"
         android:gravity="center"
-        android:lines="1"
+        android:inputType="textMultiLine"
+        android:lines="2"
         android:textColor="@color/design_default_color_primary_dark"
         android:textSize="@dimen/app_text_large"
         android:textStyle="bold"
@@ -19,20 +23,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Note name" />
+
     <View
         android:id="@+id/note_created_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="@dimen/app_margin"
         android:background="@android:color/darker_gray"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_note_name"/>
-    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_note_name" />
+
+    <EditText
         android:id="@+id/tv_note_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/app_margin"
+        android:background="@android:color/transparent"
+        android:cursorVisible="false"
+        android:inputType="textMultiLine"
         android:textColor="@color/design_default_color_primary_dark"
         android:textSize="@dimen/app_text_normal"
         app:layout_constraintEnd_toEndOf="parent"
